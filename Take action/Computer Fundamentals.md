@@ -93,3 +93,27 @@ According to the official specification, the protocol defines **9 basic methods*
 | **OPTIONS** | Queries the server to find out which HTTP methods are supported/allowed. |
 | **CONNECT** | Establishes a network tunnel to the server (commonly used with Proxies). |
 | **TRACE** | Performs a loop-back test along the path to the target resource (used for diagnostic and debugging purposes). |
+
+# HTTP Response Structure
+
+When you request any website through a browser, your request is sent to the server, and the server responds back. An HTTP response strictly consists of two main parts:
+
+---
+
+## 1. Response Headers
+
+The response header contains metadata and parameters regarding the response and the requested resources. It includes key information such as:
+
+- **Content-Type**: Specifies the type of file returned (e.g., HTML, CSS, JavaScript, or plain text).
+- **Content-Length**: Defines the size of the returned file/data.
+- **Set-Cookie**: Transmits cookie parameters and session data to be stored in the browser.
+
+---
+
+## 2. Response Body
+
+The response body contains the actual payload or content requested by the client. This typically includes:
+
+- HTML source code for structural rendering.
+- CSS and JavaScript files.
+- Media assets such as images, videos, and documents.
