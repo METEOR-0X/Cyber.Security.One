@@ -117,3 +117,27 @@ The response body contains the actual payload or content requested by the client
 - HTML source code for structural rendering.
 - CSS and JavaScript files.
 - Media assets such as images, videos, and documents.
+
+- # Virtualization Basics
+
+## The Traditional Model (Bare Metal)
+
+In the past, running a web application required dedicated hardware—a complete physical server deployed specifically for that single application.
+
+- **Low Resource Utilization**: A single web application typically consumed only **20% to 30%** of the server's total processing power and performance capacity.
+- **High Costs & Inefficiency**: Physical servers are expensive to purchase, maintain, and require significant deployment time, leading to wasted hardware resources.
+
+---
+
+## The Solution: Virtualization
+
+Virtualization solves resource underutilization by allowing multiple applications and operating systems to run concurrently on a single physical server. Each application operates within an isolated environment, behaving as if it has its own dedicated physical hardware.
+
+---
+
+## The Role of the Hypervisor
+
+The key technology enabling virtualization is the **Hypervisor** (also known as a Virtual Machine Monitor):
+
+- **Resource Allocation**: The hypervisor acts as an abstraction layer between the physical server and the virtual instances. It dynamically allocates specific amounts of **CPU, RAM, and Storage** to each virtual environment based on its needs.
+- **Isolation & Optimization**: By partitioning a single hardware unit into isolated virtual environments, organizations can maximize server capacity, reduce operational costs, and streamline deployment times.
