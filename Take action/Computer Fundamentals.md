@@ -176,3 +176,20 @@ Containers offer a lightweight alternative to full virtual machines by running i
 - **Kernel Sharing**: Containers leverage and share the host system's kernel rather than running a full OS stack.
 - **Efficiency**: They launch in seconds and consume significantly fewer CPU and RAM resources compared to VMs.
 - **Tooling**: **Docker** is the industry-standard software platform used to build, deploy, and manage containerized environments.
+
+# Cloud Computing
+
+## What is Cloud Computing?
+
+Cloud computing is the delivery of computing services—including servers, storage, databases, networking, software, and CPU/RAM resources—over the internet ("the cloud").
+
+Instead of purchasing, maintaining, and housing physical servers and data centers, you rent access to these infrastructure services from cloud providers on an as-needed basis.
+
+---
+
+## Key Benefits
+
+- **Pay-As-You-Go Model**: You only pay for the exact resources and services you consume, eliminating unnecessary costs.
+- **Cost Efficiency**: Reduces large upfront capital expenditures (CapEx) required for hardware equipment, cooling, and physical maintenance.
+- **Scalability & On-Demand Provisioning**: Allows you to instantly scale CPU, memory, and storage up or down based on current workload traffic or demand.
+- **Flexibility**: Enables quick deployment of global infrastructure virtualized over the internet in just a few clicks.
