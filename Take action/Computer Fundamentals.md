@@ -74,3 +74,22 @@ To overcome the stateless limitation and allow servers to remember users across 
 
 ### Practical Benefit
 Because of Cookies, you do not need to re-login every time you navigate to a new page. As long as your browser presents a valid session ID, the server recognizes you as an authenticated user.
+# Technical Analysis: HTTP Methods & Practical Application of GET Request
+
+According to the official specification, the protocol defines **9 basic methods** for interaction. Among them, the **GET** method is the most widely used.
+
+---
+
+## The 9 Basic HTTP Methods
+
+| Method | Description / Purpose |
+| --- | --- |
+| **GET** | Requests and retrieves data from the server without modifying it. |
+| **POST** | Sends new data to the server (e.g., submitting a registration form). |
+| **PUT** | Updates or replaces an entire file/resource on the server. |
+| **DELETE** | Removes a specific resource from the server. |
+| **PATCH** | Performs partial modifications to existing data on the server. |
+| **HEAD** | Requests only the response headers (to check existence or metadata) without downloading the content body. |
+| **OPTIONS** | Queries the server to find out which HTTP methods are supported/allowed. |
+| **CONNECT** | Establishes a network tunnel to the server (commonly used with Proxies). |
+| **TRACE** | Performs a loop-back test along the path to the target resource (used for diagnostic and debugging purposes). |
