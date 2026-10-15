@@ -141,3 +141,38 @@ The key technology enabling virtualization is the **Hypervisor** (also known as 
 
 - **Resource Allocation**: The hypervisor acts as an abstraction layer between the physical server and the virtual instances. It dynamically allocates specific amounts of **CPU, RAM, and Storage** to each virtual environment based on its needs.
 - **Isolation & Optimization**: By partitioning a single hardware unit into isolated virtual environments, organizations can maximize server capacity, reduce operational costs, and streamline deployment times.
+
+# Types of Hypervisors & Containers
+
+As established, a **hypervisor** is the core software that creates, isolates, and manages virtual machines (VMs). There are two main types of hypervisors, along with modern containerization technologies:
+
+---
+
+## 1. Type 1: Native / Bare-Metal Hypervisor
+
+A Type 1 hypervisor installs and runs directly on the physical hardware without needing a host operating system.
+
+- **High Performance & Speed**: Direct hardware access eliminates host OS overhead, yielding maximum processing speed and minimal latency.
+- **Enterprise Use Cases**: Ideal for data centers, cloud infrastructure, and production servers.
+- **Examples**: VMware ESXi, Proxmox VE, Microsoft Hyper-V.
+
+---
+
+## 2. Type 2: Hosted Hypervisor
+
+A Type 2 hypervisor runs as a standard software application on top of an existing host operating system (e.g., Windows, macOS, or Linux).
+
+- **Environment Isolation**: Provides a sandboxed guest environment. Any issues, malware executions, or system crashes inside the VM remain isolated from your main host OS.
+- **Resource Allocation**: The hypervisor requests virtualized CPU, RAM, and storage allocations directly from the host operating system.
+- **Common Use Cases**: Personal lab environments, malware testing, software development, and running secondary OS distributions (e.g., Kali Linux).
+- **Examples**: Oracle VirtualBox, VMware Workstation.
+
+---
+
+## 3. Containers (Lightweight Virtualization)
+
+Containers offer a lightweight alternative to full virtual machines by running isolated applications without requiring a standalone guest operating system.
+
+- **Kernel Sharing**: Containers leverage and share the host system's kernel rather than running a full OS stack.
+- **Efficiency**: They launch in seconds and consume significantly fewer CPU and RAM resources compared to VMs.
+- **Tooling**: **Docker** is the industry-standard software platform used to build, deploy, and manage containerized environments.
