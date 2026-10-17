@@ -204,3 +204,36 @@ Relying on a single physical server exposes applications to single points of fai
 
 ## 4. Elimination of Operational Overhead
 Managing physical hardware requires ongoing maintenance, cooling, security, and hardware replacement. Cloud providers handle all physical infrastructure management, allowing teams to focus entirely on software development and application security.
+# Cloud Service Models
+
+Cloud computing solutions are categorized into three main service models based on the level of control and management provided to the user:
+
+---
+
+## 1. IaaS (Infrastructure as a Service)
+
+In the IaaS model, the cloud provider supplies the fundamental computing infrastructure—including virtual machines, networking components, and storage capacity.
+
+- **User Responsibility**: You are responsible for installing and managing the Operating System (OS), applications, configurations, and security measures.
+- **Analogy**: Renting an empty apartment—the physical structure is provided, but you must bring all the furniture, setup, and maintenance yourself.
+- **Examples**: AWS EC2, Google Compute Engine, DigitalOcean.
+
+---
+
+## 2. PaaS (Platform as a Service)
+
+PaaS provides a complete, pre-configured hardware and software environment. The provider manages the data centers, hardware, operating system, and runtime execution environments.
+
+- **User Responsibility**: You focus solely on developing, deploying, and managing your application code and data.
+- **Analogy**: Renting a fully furnished room—the essential infrastructure and furniture are ready, so you only need to bring your personal work gear.
+- **Examples**: Heroku, AWS Elastic Beanstalk, Google App Engine.
+
+---
+
+## 3. SaaS (Software as a Service)
+
+SaaS delivers a complete, fully functional software application to end users over the internet, typically accessible directly via a web browser.
+
+- **User Responsibility**: You simply use the software. The provider handles all infrastructure, maintenance, updates, security, and scaling automatically.
+- **Analogy**: Staying in a hotel room—everything is fully prepared, serviced, and maintained for immediate use.
+- **Examples**: Google Workspace, Microsoft 365, Salesforce.
