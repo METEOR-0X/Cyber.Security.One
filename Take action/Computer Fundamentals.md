@@ -237,3 +237,37 @@ SaaS delivers a complete, fully functional software application to end users ove
 - **User Responsibility**: You simply use the software. The provider handles all infrastructure, maintenance, updates, security, and scaling automatically.
 - **Analogy**: Staying in a hotel room—everything is fully prepared, serviced, and maintained for immediate use.
 - **Examples**: Google Workspace, Microsoft 365, Salesforce.
+
+- # Types of Cloud Deployment Models
+
+Cloud infrastructure is categorized into different deployment models depending on ownership, accessibility, and operational structure:
+
+---
+
+## 1. Public Cloud
+
+In a Public Cloud model, the underlying physical hardware is owned, managed, and maintained by a third-party cloud provider (e.g., AWS, Microsoft Azure, Google Cloud).
+
+- **Shared Infrastructure**: Multiple customers (tenants) share the same physical server hardware.
+- **Virtual Isolation**: Hardware resources are partitioned into secure, isolated environments using virtualization technology to ensure data privacy between tenants.
+- **Key Advantages**: High cost-efficiency, pay-as-you-go pricing, zero hardware maintenance, and rapid scalability.
+
+---
+
+## 2. Private Cloud
+
+A Private Cloud consists of cloud infrastructure dedicated exclusively to a single organization.
+
+- **Dedicated Infrastructure**: The physical servers and resources are completely isolated and reserved for your organization alone—never shared with other entities.
+- **Deployment**: Can be hosted on-premise within an organization's own data center or managed externally by a dedicated cloud host.
+- **Key Advantages**: Maximum security, granular control, compliance fulfillment, and custom network architectures.
+- **Common Use Cases**: Highly regulated sectors such as government agencies, financial institutions, and hospitals/healthcare providers.
+
+---
+
+## 3. Hybrid Cloud
+
+A Hybrid Cloud combines elements of both Public and Private clouds, allowing data and applications to be shared between them based on operational priorities.
+
+- **Strategic Allocation**: Organizations leverage the scalability and cost-effectiveness of the public cloud for non-sensitive operations while keeping sensitive systems or data secure within a private cloud environment.
+- **Example Use Case**: An e-commerce platform stores public website assets, product photos, and media files on a **Public Cloud** for high speed and availability, while hosting confidential customer information and transaction databases within a **Private Cloud** for strict security.
