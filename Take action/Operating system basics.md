@@ -86,3 +86,48 @@ The Command Line Interface is a text-based environment where users communicate w
 | **System Resource Usage** | Higher (requires memory for graphics) | Extremely lightweight |
 | **Speed & Efficiency** | Slower for repetitive/complex tasks | Fast and highly efficient |
 | **Automation Potential** | Limited | High (via shell scripts) |
+# Real-World Operating Systems
+
+Operating systems are specialized based on their operational environment, ranging from desktop workstations and corporate servers to mobile devices, embedded systems, and cloud infrastructure.
+
+---
+
+## 1. Desktop Operating Systems
+
+| OS Family | Description | Common Versions / Distributions |
+| --- | --- | --- |
+| **Windows** | The most widely used desktop operating system globally, dominant in gaming and enterprise office environments. | Windows 10, Windows 11 |
+| **macOS** | Apple's desktop OS, recognized for its polished GUI, UNIX-based core, and seamless integration across Apple hardware. | macOS Sonoma (14), macOS Sequoia (15) |
+| **Linux** | An open-source family of operating systems (distributions) built on the Linux kernel, popular among developers and cybersecurity professionals. | Ubuntu, Debian, Fedora, Arch Linux |
+
+---
+
+## 2. Server Operating Systems
+
+| OS Family | Description / Primary Use Cases | Common Versions / Distributions |
+| --- | --- | --- |
+| **Windows Server** | Integrated heavily into corporate Active Directory environments, enterprise file sharing, and internal networks. | Windows Server 2016, 2019, 2022, 2025 |
+| **Linux Server** | Powers the vast majority of web servers, cloud instances, and backend infrastructure due to its stability, security, and low resource overhead. | Ubuntu Server, Debian, Red Hat Enterprise Linux (RHEL), Rocky Linux |
+| **UNIX** | Legacy and high-availability enterprise environments requiring strict stability and specialized hardware support. | IBM AIX, Oracle Solaris |
+
+---
+
+## 3. Mobile Operating Systems
+
+- **Android**: An open-source mobile OS based on a modified Linux kernel. It is the most widely deployed mobile OS globally, powering smartphones, tablets, and smart devices across various manufacturers.
+- **iOS**: Apple's proprietary mobile operating system designed exclusively for iPhone devices, emphasizing hardware-software optimization and sandboxed app security.
+
+---
+
+## 4. Embedded & IoT Operating Systems
+
+- **Embedded Linux**: Customized, minimal Linux distributions tailored for low-resource hardware with dedicated functions (e.g., OpenWrt for network routers, Ubuntu Core, Yocto Project).
+- **Real-Time Operating Systems (RTOS)**: Designed for mission-critical applications requiring deterministic, near-zero delay task scheduling (e.g., FreeRTOS, VxWorks, QNX used in automotive, medical devices, and aviation controls).
+
+---
+
+## 5. Virtual & Cloud Operating Systems
+
+- **Cloud / VM Images**: Minimalist Linux server images optimized for rapid deployment and high performance within virtualized cloud platforms (e.g., Ubuntu LTS, Amazon Linux, Rocky Linux).
+- **Container-Optimized OS**: Stripped-down, read-only operating systems specifically engineered to host container runtimes like Docker or Kubernetes with minimal attack surfaces (e.g., Alpine Linux, AWS Bottlerocket, Flatcar Container Linux).
+- 
