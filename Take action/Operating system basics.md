@@ -50,3 +50,39 @@ Operating System (OS) security consists of several layers of defense designed to
 - **Permissions & Access Control**: Controls granular read, write, and execution privileges (`rwx`) for files, directories, and applications based on defined access control lists (ACLs) and user roles.
 - **Process Isolation**: Ensures each process operates within its own isolated memory boundary (separating kernel space from user space). This sandboxing model prevents a compromised or faulty process from reading or modifying the memory of other processes.
 - **System Protection**: Safeguards critical core files, kernel memory space, and registry/system configurations from unauthorized tampering using features like File Integrity Monitoring (FIM), Integrity Measurement, and User Account Control (UAC).
+
+- # Operating System Interfaces
+
+An Operating System provides an interface allowing users and software to interact with the system hardware and execute tasks. Operating systems primarily offer two types of user interfaces:
+
+---
+
+## 1. GUI (Graphical User Interface)
+
+The Graphical User Interface is the visual interface most everyday computer users interact with.
+
+- **Visual Elements**: Uses graphical components such as icons, windows, drop-down menus, input fields, visual buttons, and search bars.
+- **Ease of Use**: Relies on point-and-click operations using a mouse, touchpad, or touch screen, making system navigation intuitive without needing to memorize commands.
+- **Target Audience**: Designed for general end-users prioritizing usability and visual simplicity.
+
+---
+
+## 2. CLI (Command Line Interface)
+
+The Command Line Interface is a text-based environment where users communicate with the operating system by entering specific text commands.
+
+- **Direct Command Execution**: Instead of clicking an icon to open an application or move a file, you type a specific command (e.g., `open`, `cd`, `mkdir`) telling the system exactly what action to perform.
+- **Speed & Precision**: Offers significantly faster execution times, lower system resource consumption, and precise control over complex tasks.
+- **Automation**: Ideal for system administrators, developers, and cybersecurity professionals because commands can be easily scripted to automate repetitive operations.
+
+---
+
+## Comparison Table
+
+| Feature | GUI (Graphical User Interface) | CLI (Command Line Interface) |
+| --- | --- | --- |
+| **Interaction Type** | Mouse clicks, icons, menus | Typed text commands |
+| **Ease of Learning** | Easy and intuitive for beginners | Requires learning command syntax |
+| **System Resource Usage** | Higher (requires memory for graphics) | Extremely lightweight |
+| **Speed & Efficiency** | Slower for repetitive/complex tasks | Fast and highly efficient |
+| **Automation Potential** | Limited | High (via shell scripts) |
