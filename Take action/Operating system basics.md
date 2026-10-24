@@ -130,4 +130,4 @@ Operating systems are specialized based on their operational environment, rangin
 
 - **Cloud / VM Images**: Minimalist Linux server images optimized for rapid deployment and high performance within virtualized cloud platforms (e.g., Ubuntu LTS, Amazon Linux, Rocky Linux).
 - **Container-Optimized OS**: Stripped-down, read-only operating systems specifically engineered to host container runtimes like Docker or Kubernetes with minimal attack surfaces (e.g., Alpine Linux, AWS Bottlerocket, Flatcar Container Linux).
-- 
+  
