@@ -159,7 +159,7 @@ $$\text{Linux Distribution} = \text{Kernel} + \text{Core Utilities (GNU)} + \tex
 
 ---
 
-## Hack The Box (HTB) & Real-World Application
+## Real-World Application
 
 Understanding Debian architecture is directly applicable to penetration testing and cybersecurity labs:
 
