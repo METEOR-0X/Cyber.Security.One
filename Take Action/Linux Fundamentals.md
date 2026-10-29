@@ -87,3 +87,29 @@ Linux operates on a layered architecture where each layer serves as an abstracti
 ## Practical Execution Flow Scenario
 
 When you enter the command `cat /etc/passwd` into your terminal to view system user accounts, data traverses all four architecture layers sequentially:
+
+# Linux Filesystem Hierarchy Standard (FHS) & Cybersecurity Analysis
+
+The **Filesystem Hierarchy Standard (FHS)** defines the structure and directory layout in Linux operating systems. The filesystem is structured as an inverted tree starting from the **Root Directory (`/`)**, branching into all subdirectories.
+
+---
+
+## Linux Filesystem Directory Breakdown & Security Relevance
+
+| Directory | Full Name / Description | Contents & Purpose | Cybersecurity & CTF Relevance |
+| --- | --- | --- | --- |
+| `/` | **Root Directory** | The absolute top-level directory of the entire filesystem. Every file and directory stems from here. | Represents the base of the entire system hierarchy. No directories exist above it. |
+| `/bin` | **Essential Command Binaries** | Contains fundamental system commands and executable binaries required for basic operations (e.g., `ls`, `ping`, `cat`, `cp`, `bash`). | Accessible to all users; used extensively during initial reconnaissance and navigation. |
+| `/boot` | **Boot Files** | Contains static files required to boot the operating system, including the Linux Kernel (`vmlinuz`), GRUB bootloader files, and `initramfs`. | Critical for system boot integrity; target for low-level bootkit analysis and kernel tampering. |
+| `/dev` | **Device Files** | Embodies the "Everything is a file" principle. Contains special device files representing hardware components (e.g., `/dev/sda` for primary disk, `/dev/null` as data black hole, `/dev/tty` for terminals). | Useful for hardware interactions, raw disk reads, or discarding unwanted tool output to `/dev/null`. |
+| `/etc` | **System Configuration Files** | Stores system-wide configuration files and application settings. | High-value target during enumeration. Key security files include:<br>• `/etc/passwd`: Lists user accounts.<br>• `/etc/shadow`: Contains password hashes (root-readable only).<br>• `/etc/sudoers`: Defines Sudo privilege escalation rules. |
+| `/home` | **User Home Directories** | Personal storage space for regular system users (e.g., `/home/username/`). | Often searched for SSH private keys (`.ssh/id_rsa`), user flags (`user.txt`), and sensitive personal configurations. |
+| `/lib` | **Shared Libraries** | Essential shared library files required by binaries in `/bin` and `/sbin` during system startup (equivalent to `.dll` files in Windows). | Target for shared library hijacking and privilege escalation vectors (`LD_PRELOAD`). |
+| `/media` | **Removable Media** | Automatic mount point for removable media devices like USB drives and CD-ROMs. | Investigated in digital forensics for external device activity and data exfiltration artifacts. |
+| `/mnt` | **Temporary Mount Point** | Directory reserved for system administrators to manually mount temporary filesystems or network shares. | Inspected during post-exploitation for mounted network drives or secondary backup disks. |
+| `/opt` | **Optional Software** | Used for installing third-party applications and optional software packages that do not ship natively with the OS. | Common location for manual tool installations (e.g., tools cloned from GitHub or custom utilities like Burp Suite). |
+| `/root` | **Root Home Directory** | The private home directory of the system administrator (`root` user). Distinct from the root directory `/`. | Restricted to administrative access only. On platforms like Hack The Box (HTB), it contains the final flag (`root.txt`). |
+| `/sbin` | **System Administration Binaries** | Executable binaries reserved for system maintenance and administrative functions (e.g., `fdisk`, `iptables`, `ifconfig`, `reboot`). | Restricted or monitored binaries used by admins for networking, firewalling, and partition management. |
+| `/tmp` | **Temporary Files** | World-writable directory used by applications to store temporary operational files. Automatically cleared upon reboot. | World-writable (`777`); acts as a primary **Staging Area** for attackers to upload payloads, scripts, and exploit binaries. |
+| `/usr` | **User Binaries & Resources** | Contains user utilities, secondary non-boot binaries, documentation, and shared data. | Subdirectories include:<br>• `/usr/bin`: Non-essential executable tools.<br>• `/usr/share/wordlists`: Wordlists used for brute-forcing (e.g., `rockyou.txt`). |
+| `/var` | **Variable Data** | Stores dynamic files whose contents grow and change continuously during system operation. | Key subdirectories include:<br>• `/var/log`: Stores system and application log files essential for Digital Forensics.<br>• `/var/www/html`: Default web root directory targeted during Web Hacking (LFI, File Uploads). |
