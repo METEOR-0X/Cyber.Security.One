@@ -113,3 +113,56 @@ The **Filesystem Hierarchy Standard (FHS)** defines the structure and directory 
 | `/tmp` | **Temporary Files** | World-writable directory used by applications to store temporary operational files. Automatically cleared upon reboot. | World-writable (`777`); acts as a primary **Staging Area** for attackers to upload payloads, scripts, and exploit binaries. |
 | `/usr` | **User Binaries & Resources** | Contains user utilities, secondary non-boot binaries, documentation, and shared data. | Subdirectories include:<br>• `/usr/bin`: Non-essential executable tools.<br>• `/usr/share/wordlists`: Wordlists used for brute-forcing (e.g., `rockyou.txt`). |
 | `/var` | **Variable Data** | Stores dynamic files whose contents grow and change continuously during system operation. | Key subdirectories include:<br>• `/var/log`: Stores system and application log files essential for Digital Forensics.<br>• `/var/www/html`: Default web root directory targeted during Web Hacking (LFI, File Uploads). |
+
+# Linux Distributions & Debian Deep Dive
+
+Linux operating systems are built as modular assemblies layered around the Linux Kernel. Understanding how distributions are packaged, deployed, and configured is crucial for system administration, enterprise deployment, and penetration testing (e.g., Hack The Box).
+
+---
+
+## 1. Linux Distributions (Distros)
+
+The **Linux Kernel** itself is merely the core component that manages hardware resources; it cannot function independently as an interactive operating system. A **Linux Distribution (Distro)** is created by packaging the Kernel with a complete software ecosystem:
+
+$$\text{Linux Distribution} = \text{Kernel} + \text{Core Utilities (GNU)} + \text{Package Manager} + \text{Desktop Environment / CLI} + \text{Software Packages}$$
+
+### Why Cybersecurity Professionals Prefer Linux
+
+1. **Open Source & Transparency**: Source code is fully accessible for audit, scrutiny, and modification, ensuring no hidden telemetry, backdoors, or malicious logic.
+2. **Customization & Attack Surface Reduction**: Systems can be stripped down to contain only essential services, significantly reducing the overall **Attack Surface**.
+3. **Granular Privilege Control & Stability**: Enforces strict permission boundaries (Root vs Unprivileged users) and offers rock-solid operational stability under heavy workloads.
+
+---
+
+## Linux Distributions Categorized by Domain & Use Cases
+
+| Domain / Target Environment | Notable Distributions | Key Features & Purpose |
+| --- | --- | --- |
+| **Cybersecurity & Penetration Testing** | **Kali Linux**, **ParrotOS**, BackBox, BlackArch, Pentoo | Pre-loaded with hundreds of security assessment tools for penetration testing, digital forensics, and reverse engineering. |
+| **Desktop & Beginner Friendly** | **Ubuntu**, **Fedora**, Linux Mint | Feature-rich Graphical User Interfaces (GUIs), widespread driver support, and large community troubleshooting bases. |
+| **Enterprise & Servers** | **Debian**, **Red Hat Enterprise Linux (RHEL)**, CentOS Stream, Rocky Linux | Engineered for high reliability, long-term stability, commercial enterprise support, and continuous server availability. |
+| **Specialized & Embedded** | Raspberry Pi OS, OpenWrt, Alpine Linux | Minimalist, lightweight distributions optimized for low-resource single-board computers, IoT devices, and containerized runtimes. |
+
+---
+
+## 2. Debian Overview & Core Security Features
+
+**Debian** is one of the oldest, most stable foundational Linux distributions. It serves as the upstream parent distribution for popular downstream distros like Ubuntu and Kali Linux.
+
+### 5 Pillars of Debian
+
+1. **Rock-Solid Stability & Reliability**: Follows strict package testing phases (Unstable $\rightarrow$ Testing $\rightarrow$ Stable) to ensure zero system crashes, making it ideal for 24/7 mission-critical servers.
+2. **Advanced Package Tool (APT)**: Powerful package management utility handling dependency resolution, automated software updates, and security patch deployment.
+3. **Long-Term Support (LTS)**: Provides up to 5 years of official security updates and patches for stable releases, minimizing operational maintenance overhead.
+4. **Deep Control vs Learning Curve**: Features a steeper initial learning curve compared to user-focused GUIs, rewarding administrators with granular command-line control over every subsystem.
+5. **Security & Patch Track Record**: Managed by a dedicated security team and global open-source community that rapidly patches vulnerabilities upon public disclosure.
+
+---
+
+## Hack The Box (HTB) & Real-World Application
+
+Understanding Debian architecture is directly applicable to penetration testing and cybersecurity labs:
+
+- **Target Machine Identification**: The vast majority of Linux target instances on HTB and real-world infrastructure run Debian or Debian-derived systems (Ubuntu).
+- **Privilege Escalation Vectors**: Familiarity with Debian package management enables discovering privilege escalation exploits related to elevated binaries or misconfigured Sudo permissions (e.g., `apt`, `apt-get`, or `dpkg` abuse via GTFOBins).
+- **System Enumeration**: Recognizing standard Debian file layouts allows rapid discovery of service configurations, log files (`/var/log`), and sensitive credentials.
