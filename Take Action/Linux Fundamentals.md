@@ -67,3 +67,23 @@ The Linux operating system is built from several modular layers working together
 | **5. Graphics Server** | The backend service managing display rendering and graphical hardware calls. Converts mouse movements and input into pixels and screen coordinates. | • **Display Server**: Service interfacing directly with the GPU.<br>• **X11 / X-Server**: Traditional standard windowing system.<br>• **Wayland**: Modern, faster replacement protocol for display servers. | Like a painter's canvas and paintbrush providing the foundation and tools to project a picture. |
 | **6. Desktop Environment (DE)** | The complete Graphical User Interface (GUI) visible to the user, including windows, buttons, taskbars, wallpapers, and menus. | • **GUI**: Graphical User Interface.<br>• **Desktop Environment**: Complete suite containing window managers, icons, and themes (e.g., GNOME, KDE Plasma, XFCE, MATE). | Like interior design and room decoration making a space functional, organized, and pleasant to inhabit. |
 | **7. Utilities** | Specialized single-purpose command-line or GUI programs pre-installed to perform dedicated operational tasks. | • **Coreutils**: Fundamental GNU tools included in Linux.<br>• **CLI Utilities**: Dedicated CLI commands like `ls` (list files), `cat` (read content), and `grep` (filter text). | Like a home toolkit containing a screwdriver, hammer, and tape measure—each tool designed for one specific function. |
+# Linux Architecture Layers & Practical Execution Flow
+
+Linux operates on a layered architecture where each layer serves as an abstraction interface between the physical hardware and the upper user environment. This design enforces system stability, security boundaries, and modularity.
+
+---
+
+## The 4 Core Layers of Linux Architecture
+
+| Layer | Component | Functional Description & Responsibilities | Cybersecurity Relevance |
+| --- | --- | --- | --- |
+| **1. Hardware** | Physical Devices | Physical components that process electrical signals and execute binary instructions (`0`s and `1`s). Includes CPU, RAM, persistent storage (SSD/HDD), and network interface cards (NICs). | Understanding hardware layouts helps analyze low-level memory corruption vulnerabilities (e.g., Buffer Overflows) and physical/hardware attacks. |
+| **2. Kernel** | OS Core & Hardware Abstraction | The central controller managing hardware resources, process scheduling, and memory allocation. It presents a Hardware Abstraction Layer (HAL), isolating processes into virtual memory spaces and handling requests via **System Calls (Syscalls)**. | Exploiting a vulnerability inside the Kernel (**Kernel Exploit**) allows an attacker to achieve full system control (**Root Access / Privilege Escalation**). |
+| **3. Shell** | Command Interpreter (CLI) | An interactive Command Line Interface acting as a bridge between the user and the Kernel. Translates human-readable text commands into machine instructions understood by the Kernel. Examples include `Bash` and `Zsh`. | Gaining remote control over a compromised host typically involves spawning an interactive shell connection (**Reverse Shell** or **Bind Shell**). |
+| **4. System Utilities** | Application & Utility Layer | Built-in single-purpose programs (GNU Coreutils) that perform specific operating system functions (e.g., file management, permission settings, text processing). | Attackers leverage built-in utilities for **Living off the Land (LotL)** techniques—using legitimate tools to perform reconnaissance and escalation without triggering antivirus alerts. |
+
+---
+
+## Practical Execution Flow Scenario
+
+When you enter the command `cat /etc/passwd` into your terminal to view system user accounts, data traverses all four architecture layers sequentially:
