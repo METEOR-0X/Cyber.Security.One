@@ -300,7 +300,7 @@ The `ls` (List) command is one of the most basic and frequently used Linux utili
 
 ---
 
-## 📖 Built-in Terminal Help Methods
+##  Built-in Terminal Help Methods
 
 Linux provides three main internal methods to inspect tools and learn their usage flags.
 
