@@ -207,4 +207,65 @@ In penetration testing and CTF environments (such as Hack The Box), `tmux` allow
 | **TCSH / CSH / KSH** | Older legacy shells modeled after C syntax or specific Unix variants. | Found primarily in specialized legacy enterprise systems. |
 
 ---
+# Bash Prompt Structure & PS1 Customization
 
+The **Bash Prompt** is the text-based interface string and cursor displayed in the terminal indicating that the shell is ready to receive user commands. Configuring and customizing the prompt using the `PS1` environment variable enhances operational efficiency, mistake prevention, and activity documentation during penetration testing and administration.
+
+---
+
+## 1. Default Prompt Anatomy & Privilege Indicators
+
+In most Linux distributions, the default Bash prompt follows a standard template:
+
+$$\text{Format: } \texttt{<username>@<hostname>:<current\_directory><privilege\_symbol>}$$
+
+### Component Breakdown
+- **`<username>`**: The currently logged-in account identity.
+- **`<hostname>`**: The network host name of the local computer or remote server.
+- **`<current_directory>`**: The current working directory path (`~` denotes the user's home directory).
+- **`Privilege Symbol`**:
+  - **`$`** *(Unprivileged User Shell)*: Indicates a standard user account with limited system access (e.g., `user@htb[~]$`).
+  - **`#`** *(Privileged / Root Shell)*: Indicates full administrative access with complete system privileges (e.g., `root@htb[/htb]#`).
+
+> **HTB / CTF Tip**: When spawning a reverse shell or non-interactive shell on a target host, you may only see a raw `$` or `#` prompt without formatting because the `PS1` variable has not been initialized in the non-interactive session environment.
+
+---
+
+## 2. The PS1 Environment Variable & Escape Sequences
+
+The `PS1` (Prompt String 1) environment variable defines the dynamic layout, text components, and formatting of the primary shell prompt. It is persistently configured within shell resource files like `~/.bashrc` or `/etc/bash.bashrc`.
+
+### Common PS1 Special Characters
+
+| Special Character | Description / Output Format | Example Value |
+| --- | --- | --- |
+| `\u` | Current username | `kali` |
+| `\h` | Short hostname (up to first `.`) | `htb` |
+| `\H` | Full domain hostname | `htb.local` |
+| `\w` | Full current working directory absolute path | `/var/www/html` |
+| `\W` | Basename of the current directory only | `html` |
+| `\d` | Current date format (`Weekday Month Day`) | `Fri Oct 30` |
+| `\D{%Y-%m-%d}` | Custom formatted date | `2026-10-30` |
+| `\t` | Current time in 24-hour format (`HH:MM:SS`) | `14:30:05` |
+| `\T` | Current time in 12-hour format (`HH:MM:SS`) | `02:30:05` |
+| `\@` | Current time in 12-hour format with AM/PM | `02:30 PM` |
+| `\s` | Name of the active shell binary | `bash` |
+| `\j` | Number of active background jobs managed by the shell | `2` |
+| `\n` | Inserts a line break (newline) | N/A |
+| `\$` | Displays `#` if UID is 0 (root), otherwise `$` | `$` or `#` |
+
+---
+
+## 3. Cybersecurity & Penetration Testing Applications
+
+1. **Accurate Documentation & Reporting**:
+   Including timestamps (`\t` / `\D`), target IP addresses, and absolute working paths (`\w`) in the prompt ensures that every terminal screenshot, `script` session log, or `.bash_history` entry contains unambiguous temporal and contextual data required for pentest reports.
+2. **Operational Error Prevention**:
+   Applying ANSI color codes to `PS1` (e.g., setting a bright red prompt for `root` sessions and green for standard users) provides an immediate visual indicator of elevated privileges, preventing destructive accidental commands on production servers.
+
+---
+
+## 4. Prompt Customization Tools
+
+- **Bash Prompt Generators**: Web-based interfaces used to visually compose customized `PS1` strings with color codes and elements, generating ready-to-paste snippets for `~/.bashrc`.
+- **Powerline / Starship / Oh My Posh**: Advanced prompt engines offering status segments (e.g., Git branch status, system load, network interfaces, exit codes) rendered with custom powerline glyphs and color themes.
