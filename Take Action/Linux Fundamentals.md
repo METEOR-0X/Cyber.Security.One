@@ -208,8 +208,3 @@ In penetration testing and CTF environments (such as Hack The Box), `tmux` allow
 
 ---
 
-## 4. Cybersecurity & Hack The Box (HTB) Relevance
-
-1. **Reverse Shells & Remote Control**: After successfully exploiting a Remote Code Execution (RCE) vulnerability, the primary objective is to spawn an interactive `bash` or `zsh` reverse shell connection back to your system.
-2. **Bash Automation**: Writing modular shell scripts (`.sh`) enables rapid port scanning, credential spraying, log parsing, and automated local privilege escalation checks.
-3. **Multi-Tasking Efficiency**: Using `tmux` ensures you can maintain multiple listeners, tools, and terminal sessions organized efficiently while targeting complex enterprise lab environments.
