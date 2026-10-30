@@ -412,7 +412,3 @@ Systematic experimentation with different command flags builds deep familiarity 
 * Use `<tool> --help` or `<tool> -h` for quick option lookups.
 * Search unknown utilities using `apropos <keyword>`.
 * Deconstruct multi-flag commands using `explainshell.com`.
-
-```
-
-```
