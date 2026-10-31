@@ -688,7 +688,3 @@ cd ..
 Critical operational artifacts, SSH private keys (`.ssh/id_rsa`), configuration files, and command logs (`.bash_history`) reside inside hidden files (`.`). Running `ls -la` is essential during target enumeration.
 3. **Operational Speed**:
 Mastering `[TAB]` auto-completion, `[Ctrl] + [R]` history search, and `cd -` navigation minimizes delays during time-sensitive CTF challenges and pentesting engagements.
-
-```
-
-
