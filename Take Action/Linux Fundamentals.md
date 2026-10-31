@@ -688,3 +688,150 @@ cd ..
 Critical operational artifacts, SSH private keys (`.ssh/id_rsa`), configuration files, and command logs (`.bash_history`) reside inside hidden files (`.`). Running `ls -la` is essential during target enumeration.
 3. **Operational Speed**:
 Mastering `[TAB]` auto-completion, `[Ctrl] + [R]` history search, and `cd -` navigation minimizes delays during time-sensitive CTF challenges and pentesting engagements.
+```markdown
+# Linux File & Directory Management
+
+Managing files and directories via the Command Line Interface (CLI) provides speed, automation, and total control over system structures compared to graphical file managers.
+
+---
+
+## 1. Creating Files & Directories
+
+### A. Creating Empty Files (`touch`)
+The `touch` command creates a new empty file immediately, or updates the access and modification timestamps of an existing file.
+
+- **Syntax**:
+  ```bash
+  touch <filename>
+
+```
+
+* **Example**:
+```bash
+touch info.txt
+
+```
+
+
+
+### B. Creating Directories (`mkdir`)
+
+The `mkdir` (Make Directory) command creates a new folder.
+
+* **Syntax**:
+```bash
+mkdir <directory_name>
+
+```
+
+
+* **Example**:
+```bash
+mkdir Storage
+
+```
+
+
+
+### C. Creating Nested Directories (`mkdir -p`)
+
+Attempting to create a subdirectory inside a non-existent parent directory throws an error. The `-p` (Parents) flag automatically creates all required parent and child directories in a single command.
+
+* **Example**:
+```bash
+mkdir -p Storage/local/user/documents
+
+```
+
+
+
+### D. Visualizing Structure (`tree`)
+
+The `tree` command displays directories and subdirectories in a visual, organized tree layout alongside summary statistics.
+
+* **Example**:
+```bash
+tree .
+
+```
+
+
+* **Sample Output**:
+```text
+.
+├── info.txt
+└── Storage
+    └── local
+        └── user
+            └── documents
+4 directories, 1 file
+
+```
+
+
+
+### E. Direct Creation Using Current Directory (`.`)
+
+The single dot (`.`) represents the current working directory. Files can be created inside distant subdirectories without leaving your current location:
+
+```bash
+touch ./Storage/local/user/userinfo.txt
+
+```
+
+---
+
+## 2. Moving and Renaming (`mv`)
+
+The `mv` (Move) command performs two distinct functions based on the destination input: renaming files or moving them across directories.
+
+* **Syntax**:
+```bash
+mv <source> <destination_or_new_name>
+
+```
+
+
+
+### A. Renaming a File
+
+If the destination argument is a new filename in the same directory, `mv` renames the file:
+
+```bash
+mv info.txt information.txt
+
+```
+
+### B. Moving Multiple Files to a Directory
+
+Multiple files can be moved simultaneously by specifying all source files followed by the target directory:
+
+```bash
+touch readme.txt
+mv information.txt readme.txt Storage/
+
+```
+
+---
+
+## 3. Copying Files (`cp`)
+
+The `cp` (Copy) command duplicates a file from a source path to a target directory while leaving the original file intact.
+
+* **Syntax**:
+```bash
+cp <source_file> <destination_directory>
+
+```
+
+
+* **Example**:
+```bash
+cp Storage/readme.txt Storage/local/
+
+```
+
+
+
+---
+
