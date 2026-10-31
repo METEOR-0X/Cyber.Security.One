@@ -271,14 +271,7 @@ The `PS1` (Prompt String 1) environment variable defines the dynamic layout, tex
 - **Powerline / Starship / Oh My Posh**: Advanced prompt engines offering status segments (e.g., Git branch status, system load, network interfaces, exit codes) rendered with custom powerline glyphs and color themes.
 
 ```markdown
-# Linux Fundamentals: Getting Help & Command Discovery
-
-![Category](https://img.shields.io/badge/Category-Linux_Basics-blue.svg)
-![Field](https://img.shields.io/badge/Field-Cybersecurity-red.svg)
-![Skill](https://img.shields.io/badge/Skill-Command_Line_Navigation-green.svg)
-
----
-
+# 
 ##  Overview
 
 In cybersecurity and penetration testing, it is impossible to memorize every command, option, and flag. Developing **self-help skills** in the command line interface (CLI) is essential for daily efficiency, troubleshooting, and solving hands-on challenges.
@@ -413,13 +406,7 @@ Systematic experimentation with different command flags builds deep familiarity 
 * Search unknown utilities using `apropos <keyword>`.
 * Deconstruct multi-flag commands using `explainshell.com`.
 ```markdown
-# System Information Gathering and SSH Remote Access
-
-![Category](https://img.shields.io/badge/Category-Linux_Basics-blue.svg)
-![Field](https://img.shields.io/badge/Field-Cybersecurity-red.svg)
-![Skill](https://img.shields.io/badge/Skill-Situational_Awareness-green.svg)
-
----
+# 
 
 ## Overview
 
