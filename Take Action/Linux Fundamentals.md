@@ -412,3 +412,160 @@ Systematic experimentation with different command flags builds deep familiarity 
 * Use `<tool> --help` or `<tool> -h` for quick option lookups.
 * Search unknown utilities using `apropos <keyword>`.
 * Deconstruct multi-flag commands using `explainshell.com`.
+```markdown
+# System Information Gathering and SSH Remote Access
+
+![Category](https://img.shields.io/badge/Category-Linux_Basics-blue.svg)
+![Field](https://img.shields.io/badge/Field-Cybersecurity-red.svg)
+![Skill](https://img.shields.io/badge/Skill-Situational_Awareness-green.svg)
+
+---
+
+## Overview
+
+When gaining initial access or spawning a shell on a target system, the first critical step is establishing **Situational Awareness**. This involves gathering detailed information about the system environment, current user privileges, running processes, network configurations, and operating system details.
+
+This guide covers essential Linux commands for system enumeration and remote connection management via SSH.
+
+---
+
+## Essential Information Gathering Tools
+
+Below is a reference table of built-in Linux commands used to analyze system specifications, network states, and active processes.
+
+| Command | Description |
+| :--- | :--- |
+| `whoami` | Displays the username of the current effective user |
+| `id` | Displays User ID (UID), Primary Group ID (GID), and secondary groups |
+| `hostname` | Displays or sets the system host name |
+| `uname` | Prints system kernel and hardware architecture information |
+| `pwd` | Prints the absolute path of the current working directory |
+| `ifconfig` | Configures or displays network interface parameters (legacy tool) |
+| `ip` | Modern utility to manage and display routing, devices, and interfaces |
+| `netstat` | Displays active network connections and socket statistics |
+| `ss` | Fast utility for investigating sockets and checking open ports |
+| `ps` | Reports a snapshot of current running processes |
+| `who` | Lists users who are currently logged into the system |
+| `env` | Prints or modifies environment variables |
+| `lsblk` | Lists information about block storage devices and partitions |
+| `lsusb` | Lists connected USB devices |
+| `lsof` | Lists open files and the processes that opened them |
+| `lspci` | Lists all devices and cards connected to PCI buses (e.g., GPU, NIC) |
+
+---
+
+## Remote Access via SSH
+
+### What is SSH?
+**SSH (Secure Shell)** is a cryptographic network protocol used to securely operate and manage remote systems over an encrypted command-line interface (CLI).
+
+### Why Use SSH?
+* **Low Resource Usage:** Does not require a Graphical User Interface (GUI).
+* **Security:** Encrypts all traffic between the client and server.
+* **Speed:** Fast and efficient execution over remote networks.
+
+### Syntax and Example
+
+```bash
+ssh htb-student@[IP_ADDRESS]
+
+```
+
+Replace `[IP_ADDRESS]` with the target machine's IP address and provide the password when prompted.
+
+---
+
+## Detailed Command Analysis & Privilege Escalation Relevance
+
+### 1. `hostname`
+
+Displays the network name assigned to the system.
+
+```bash
+meteor0x1@htb[/htb]$ hostname
+nixfund
+
+```
+
+---
+
+### 2. `whoami`
+
+Identifies the active user account associated with the current shell session.
+
+```bash
+cry0l1t3@htb[/htb]$ whoami
+cry0l1t3
+
+```
+
+> **Security Note:** Executing `whoami` immediately after getting a reverse shell determines whether you have low-privileged user access or administrator (`root`) privileges.
+
+---
+
+### 3. `id`
+
+Provides deep visibility into the current user's identity and group memberships.
+
+```bash
+cry0l1t3@htb[/htb]$ id
+uid=1000(cry0l1t3) gid=1000(cry0l1t3) groups=1000(cry0l1t3),1337(hackthebox),4(adm),24(cdrom),27(sudo)...
+
+```
+
+#### Privilege Escalation Vectors via Group Membership:
+
+* **`sudo` Group:** Membership allows execution of commands with elevated or `root` privileges.
+* **`adm` Group:** Grants read access to system log files in `/var/log`, which may contain hardcoded credentials, sensitive tokens, or internal errors.
+* **Custom Groups (e.g., `hackthebox`):** Non-standard groups often indicate custom application permissions or binary access that require thorough inspection.
+
+---
+
+### 4. `uname` (Kernel Version Enumeration)
+
+Prints detailed information about the operating system kernel and hardware platform.
+
+#### Complete System Information (`uname -a`)
+
+```bash
+cry0l1t3@htb[/htb]$ uname -a
+Linux box 4.15.0-99-generic #100-Ubuntu SMP Wed Apr 22 20:32:56 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+
+```
+
+* **Kernel Name:** Linux
+* **Hostname:** box
+* **Kernel Release:** 4.15.0-99-generic
+* **Architecture:** x86_64
+
+#### Specific Kernel Release (`uname -r`)
+
+```bash
+cry0l1t3@htb[/htb]$ uname -r
+4.15.0-99-generic
+
+```
+
+> **Security Note:** Outdated kernel versions (such as `4.15.0-99-generic`) should be searched using utilities like `searchsploit` or public databases for known local kernel exploits (Local Privilege Escalation / LPE) to obtain `root` access.
+
+---
+
+## Key Takeaways & Practical Mindset
+
+* **Post-Exploitation Routine:** Always execute `whoami`, `id`, and `uname -a` immediately upon getting access.
+* **Continuous Enumeration:** Group memberships and kernel versions often reveal direct paths for Privilege Escalation.
+* **Adaptability:** Command-line fluency improves with repeated practical application during labs and Hack The Box (HTB) exercises.
+
+---
+
+## Summary Checklist
+
+* Run `whoami` to verify current shell user context.
+* Inspect group memberships using `id` for `sudo` or `adm` privileges.
+* Check system kernel version using `uname -r` for exploit research.
+* Analyze system state using `ps`, `netstat`, and `ip`.
+* Connect securely to remote targets using `ssh user@IP`.
+
+```
+
+```
