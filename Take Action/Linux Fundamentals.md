@@ -553,6 +553,4 @@ cry0l1t3@htb[/htb]$ uname -r
 * Analyze system state using `ps`, `netstat`, and `ip`.
 * Connect securely to remote targets using `ssh user@IP`.
 
-```
 
-```
