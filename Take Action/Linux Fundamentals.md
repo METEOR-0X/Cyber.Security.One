@@ -932,13 +932,3 @@ vimtutor
 
 ```
 
----
-
-Hahowa l-code Markdown m9ād w-clean dyal had l-dars ready 100% l-GitHub!
-
-<ElicitationsGroup message="Sift liya l-dars l-jay b Darija bach n-sawbo-h drectement:">
-  <Elicitation label="Document Linux File Permissions & Chmod (rwx, octal, chown)" query="Document Linux file permissions (rwx, octal notation, chown, chmod, SUID) in simple Markdown format."/>
-  <Elicitation label="Document Linux Text Processing Utilities (grep, awk, sed, cut)" query="Document Linux text processing utilities (grep, awk, sed, cut) with practical cybersecurity examples in simple Markdown format."/>
-</ElicitationsGroup>
-
-```
