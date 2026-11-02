@@ -930,5 +930,4 @@ vimtutor
 
 *(Alternatively, execute `:Tutor` inside an active Vim session).*
 
-```
 
