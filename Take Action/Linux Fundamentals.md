@@ -835,3 +835,110 @@ cp Storage/readme.txt Storage/local/
 
 ---
 
+```markdown
+# Editing Text Files in Linux: Nano & Vim
+
+Command-line text editors allow system administrators and security professionals to create, modify, and inspect system configuration files directly from the terminal interface.
+
+---
+
+## 1. Nano Text Editor (`nano`)
+
+`nano` is a simple, user-friendly text editor recommended for beginners due to its straight-forward interface and visible shortcut guide at the bottom of the screen.
+
+### Opening and Creating Files
+To create or edit a text file, pass the filename as an argument:
+
+```bash
+nano notes.txt
+
+```
+
+### Essential Nano Shortcuts
+
+The caret symbol (`^`) displayed at the bottom of the Nano interface represents the `[CTRL]` key.
+
+* **Search Text (`Where Is`)**: Press `[CTRL] + [W]`, type the search term, and press `[ENTER]`. To jump to the next matching result, press `[CTRL] + [W]` followed immediately by `[ENTER]`.
+* **Save File (`Write Out`)**: Press `[CTRL] + [O]`, then press `[ENTER]` to confirm the filename.
+* **Exit Editor (`Exit`)**: Press `[CTRL] + [X]`.
+
+### Viewing File Contents (`cat`)
+
+To quickly display the contents of a saved file directly to the terminal without launching an editor:
+
+```bash
+cat notes.txt
+
+```
+
+---
+
+## 2. Security Relevance: The `/etc/passwd` File
+
+During security assessments and penetration testing, critical system configuration files are primary targets for enumeration and local privilege escalation.
+
+### Purpose & Structure
+
+* **Account Metadata**: Contains system account details including username, User ID (`UID`), Group ID (`GID`), user comment field, home directory path, and default login shell.
+* **Historical Context**: Historically contained encrypted password hashes. Hashes have since been migrated to `/etc/shadow`, which is protected by strict root-only permissions.
+
+### Security & Privilege Escalation Relevance
+
+* **Permission Misconfigurations**: If `/etc/passwd` permissions are misconfigured (e.g., world-writable), an attacker can append a custom user entry with a known password hash and set the `UID` to `0` (`root`), achieving instant full administrative access.
+
+---
+
+## 3. Vim Text Editor (`vim`)
+
+`vim` (Vi Improved) is a lightweight, highly efficient modal text editor designed for Unix and Linux systems.
+
+### Vim Design Philosophy
+
+Vim aligns with core Linux design principles: it is lightweight, modular, focused strictly on text editing, and seamlessly integrates with text-processing utilities like `grep`, `awk`, and `sed`.
+
+### Core Vim Operational Modes
+
+Vim is a **modal editor**, meaning keyboard inputs perform different actions depending on the active mode:
+
+| Mode | Name | Description & Functionality |
+| --- | --- | --- |
+| **Normal** | Default Mode | The default state when opening Vim. Keypresses execute navigation and editing commands rather than inserting text. |
+| **Insert** | Editing Mode | Standard typing mode where characters are written directly into the file (entered by pressing `i`). |
+| **Visual** | Selection Mode | Used to highlight text blocks for copying (`yank`), deleting, or transforming text. |
+| **Command** | Command Mode | Activated by typing `:` from Normal mode. Used to save (`:w`), exit (`:q`), search, and format text. |
+| **Replace** | Overwrite Mode | Overwrites existing characters directly under the cursor as you type. |
+| **Ex** | Ex Mode | Simulates the legacy Ex command mode to execute consecutive line-based commands. |
+
+### Exiting Vim
+
+1. Press `[ESC]` to return to **Normal Mode**.
+2. Type one of the following commands and press `[ENTER]`:
+* `:wq` : Save changes and quit.
+* `:q!` : Force quit without saving changes.
+* `:q`  : Quit (only works if no changes were made).
+
+
+
+### Interactive Vim Tutorial (`vimtutor`)
+
+Linux includes an interactive terminal tutorial designed to teach fundamental Vim commands within 25–30 minutes:
+
+```bash
+vimtutor
+
+```
+
+*(Alternatively, execute `:Tutor` inside an active Vim session).*
+
+```
+
+---
+
+Hahowa l-code Markdown m9ād w-clean dyal had l-dars ready 100% l-GitHub!
+
+<ElicitationsGroup message="Sift liya l-dars l-jay b Darija bach n-sawbo-h drectement:">
+  <Elicitation label="Document Linux File Permissions & Chmod (rwx, octal, chown)" query="Document Linux file permissions (rwx, octal notation, chown, chmod, SUID) in simple Markdown format."/>
+  <Elicitation label="Document Linux Text Processing Utilities (grep, awk, sed, cut)" query="Document Linux text processing utilities (grep, awk, sed, cut) with practical cybersecurity examples in simple Markdown format."/>
+</ElicitationsGroup>
+
+```
